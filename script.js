@@ -18,26 +18,32 @@ const hex = [
 ];
 const times = 6;
 let newColor = "";
-let color1 = "";
-let color2 = "";
+let color1;
+let color2;
+
+const btn = document.querySelector(".btn");
+const color1Text = document.querySelector(".color-1");
+const color2Text = document.querySelector(".color-2");
 
 const getNewColor = function () {
-  newColor = "#";
+  color1 = "#";
+  color2 = "#";
+
   for (let i = 0; i < times; i++) {
     const randomIndex = Math.floor(Math.random() * hex.length);
-    color1 = newColor + hex[randomIndex];
+    color1 += hex[randomIndex];
   }
-  console.log(newColor);
+
+  for (let i = 0; i < times; i++) {
+    const randomIndex = Math.floor(Math.random() * hex.length);
+    color2 += hex[randomIndex];
+  }
+
+  document.body.style.background = `linear-gradient(${color1}, ${color2})`;
+  color1Text.textContent = color1;
+  color2Text.textContent = color2;
 };
 
-const getColor1 = function () {
-  getNewColor();
-};
-getColor1();
+btn.addEventListener("click", getNewColor);
 
-const getColor2 = function () {
-  getNewColor();
-};
-getColor2();
-
-document.body.style.background = `linear-gradient(${color1}, ${color2})`;
+console.log(color1, color2);

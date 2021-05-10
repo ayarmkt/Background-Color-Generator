@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
@@ -11,11 +12,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
 .text-content {
-  height: 50vh;
-  width: 70vw;
+  height: 40vh;
+  width: 50vw;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -29,11 +31,32 @@ p,
 }
 
 h2 {
-  font-size: 5rem;
+  font-size: 150%;
   text-align: center;
+  height: 100%;
 }
 
 p {
-  font-size: 2rem;
+  font-size: 100%;
   text-align: center;
+}
+
+.btn {
+  font-size: 100%;
+  background-color: rgb(197, 195, 195);
+  border: 0;
+  border-radius: 10%;
+  margin: 4%;
+  height: 50%;
+  width: 15%;
+}
+
+.btn:hover {
+  background-color: rgb(134, 133, 133);
+}
+
+.btn:active {
+  background-color: rgb(134, 133, 133);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
