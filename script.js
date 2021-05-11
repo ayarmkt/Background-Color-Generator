@@ -25,25 +25,22 @@ const btn = document.querySelector(".btn");
 const color1Text = document.querySelector(".color-1");
 const color2Text = document.querySelector(".color-2");
 
-const getNewColor = function () {
-  color1 = "#";
-  color2 = "#";
-
-  for (let i = 0; i < times; i++) {
-    const randomIndex = Math.floor(Math.random() * hex.length);
-    color1 += hex[randomIndex];
+const changeBgColor = function () {
+  function getNewColor(color) {
+    newColor = "#";
+    for (let i = 0; i < times; i++) {
+      const randomIndex = Math.floor(Math.random() * hex.length);
+      newColor += hex[randomIndex];
+    }
+    color === color1 ? (color1 = newColor) : (color2 = newColor);
   }
 
-  for (let i = 0; i < times; i++) {
-    const randomIndex = Math.floor(Math.random() * hex.length);
-    color2 += hex[randomIndex];
-  }
+  getNewColor(color1);
+  getNewColor(color2);
 
   document.body.style.background = `linear-gradient(${color1}, ${color2})`;
   color1Text.textContent = color1;
   color2Text.textContent = color2;
 };
 
-btn.addEventListener("click", getNewColor);
-
-console.log(color1, color2);
+btn.addEventListener("click", changeBgColor);
